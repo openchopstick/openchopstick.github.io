@@ -5,44 +5,76 @@
   <meta charset="utf-8">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script type="text/javascript">
+    function redirect() {
+      var ua = navigator.userAgent.toLocaleLowerCase();
+      var isAndroid = /android/i.test(ua);
+      var isiOS = !!ua.match(/\(i[^;]+;( u;)? cpu.+mac os x/);
+      var isWechat = /micromessenger/i.test(ua);
+
+      if (isWechat) {
+        document.getElementById("image").style.display = "block";
+      } else if (isAndroid) {
+        window.location.href = "https://openchopstick.github.io/app/wegalaxy/wegalaxy.apk";
+      } else if (isiOS) {
+        window.location.href = "itms-services://?action=download-manifest&url=https://openchopstick.github.io/app/wegalaxy/manifest.plist";
+      } else {
+        document.getElementById("main").style.display = "block";
+      }
+    };
+    window.onload = redirect;
+  </script>
+  <style type="text/css">
+    body {
+      margin: 0px;
+    }
+    #image {
+      width: 100%;
+      display: none;
+    }
+    #main {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="rounded mx-auto d-block w-100" src="img1.png" style="object-fit: contain;">
-    </div>
-    <div class="carousel-item">
-      <img class="rounded mx-auto d-block w-100" src="img2.png">
-    </div>
-    <div class="carousel-item">
-      <img class="rounded mx-auto d-block w-100" src="img3.png">
-    </div>
-    <div class="carousel-item">
-      <img class="rounded mx-auto d-block w-100" src="img4.png">
+  <img id="image" src="head.png" />
+  <div id="main">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="rounded mx-auto d-block w-100" src="img1.png" style="object-fit: contain;">
+      </div>
+      <div class="carousel-item">
+        <img class="rounded mx-auto d-block w-100" src="img2.png">
+      </div>
+      <div class="carousel-item">
+        <img class="rounded mx-auto d-block w-100" src="img3.png">
+      </div>
+      <div class="carousel-item">
+        <img class="rounded mx-auto d-block w-100" src="img4.png">
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-6">
-    <img class="col" src="ios.png">
-    <h3 class="text-center">iOS</h3>
-    <div id="version" class="text-center">版本 <span>1.0.0</span></div>
-    <div id="update" class="text-center">2021-09-01</div>
-  </div>
+  <div class="row">
+    <div class="col-6">
+      <img class="col" src="ios.png">
+      <h3 class="text-center">iOS</h3>
+      <div id="version" class="text-center">版本 <span>1.0.0</span></div>
+    </div>
 
-  <div class="col-6">
-    <img class="col" src="android.png">
-    <h3 class="text-center">Android</h3>
-    <div id="version" class="text-center">版本 <span>1.0.0</span></div>
-    <div id="update" class="text-center">2021-09-01</div>
+    <div class="col-6">
+      <img class="col" src="android.png">
+      <h3 class="text-center">Android</h3>
+      <div id="version" class="text-center">版本 <span>1.0.0</span></div>
+    </div>
   </div>
 </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
